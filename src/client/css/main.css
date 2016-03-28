@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.page-header {
+  padding-left: 40px;
+}
+
+#booksBlock {
+  background: #7B68EE;
+}
+
+#authorsBlock {
+  background: #8E388E;
+}
+
+.mainBlock {
+  width: 100%;
+  height: 40vh;
+  margin-top: 100px;
+}
