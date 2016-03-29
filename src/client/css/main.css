@@ -5,7 +5,8 @@ html, body {
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: #000;
 }
 
 .page-header {
@@ -39,11 +40,21 @@ a {
   height: 30vh;
   padding-top: 30px;
 }
+.authorsLink:hover {
+  background: rgba(70, 70, 70, 0.87);
+  color: #ffffff;
+}
 
 .booksLink {
   border: 1px solid black;
   height: 30vh;
   padding-top: 30px;
+  background: #bfc3d3;
+}
+
+.booksLink:hover {
+  background: rgba(70, 70, 70, 0.87);
+  color: #ffffff;
 }
 
 .bookImages {
@@ -64,3 +75,6 @@ a {
 /*.bookDescript {*/
   /*padding-left: 20px;*/
 /*}*/
+.sidebar:hover {
+  text-decoration: none;
+}

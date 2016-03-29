@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../../../db/knex');
 
+/*********************
+ * Getter Routes for books
+ **********************/
+
 router.get('/', function(req, res, next) {
     res.render('index',
         {
@@ -18,7 +22,29 @@ router.get('/books', function(req,res,next) {
                     title: 'Galvanize Reads | Books',
                     books: data
                 });
-        });});
+        });
+});
+
+router.get('/books/new', function(req,res,next) {
+    res.render('newBooks', {
+        index: 'Galvanize Reads | Add a new Book'
+    });
+});
+
+router.get('/book/:id', function(req,res,next) {
+    knex.select('*').from('books').where('id', req.params.id)
+        .then(function (data) {
+            res.render('book',
+                {
+                    title: 'Galvanize REads | Individual Book',
+                    books: data
+                });
+        });
+});
+
+/*************************
+ * Getter for authors
+ *************************/
 
 router.get('/authors', function (req, res, next) {
   res.render('authors', { title: 'Authors'});
