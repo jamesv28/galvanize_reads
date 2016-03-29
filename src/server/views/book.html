@@ -6,8 +6,47 @@
 {% block content %}
 
 <div class="row">
-    <div class="contaienr">
-        <h2>hello</h2>
+    <div class="container-fluid">
+        <div class="col-sm-2 col-md-2 col-xs-2">
+            <a href="/authors" class="sidebar">
+                <section class="authorsLink">
+                    <div class="text-center">
+                        <i class="fa fa-users fa-2x text-center"></i>
+                    </div>
+                    <p class="authorLinkText">Authors</p>
+                </section>
+            </a>
+            <a href="/books" class="sidebar">
+                <section class="booksLink">
+                    <div class="text-center">
+                        <i class="fa fa-book fa-2x text-center"></i>
+                    </div>
+                    <p class="authorLinkText">Books</p>
+                </section>
+            </a>
+        </div>
+        <div class="col-md-9  col-sm-9 ">
+            <div class="bookSelection clearfix">
+                <div class="col-md-3">
+                        <img  class="bookImages img-responsive" src="../{{books[0].Book_Cover}}" align="{{book.Book_Title}}">
+                </div>
+                <div class=" col-md-9">
+                    <h2 class="">{{books[0].Book_Title}}</h2>
+                    <div class="clearfix">
+                        <p>Genre: {{books[0].Book_Genre}}</p>
+                        <p>Description: </p>
+                        <p>{{books[0].Book_Description}}</p>
+                    </div>
+
+                </div>
+                <div>
+                    <button class=" btn btn-info ">Edit</button>
+
+                </div>
+
+            </div><!-- end of selection -->
+
+        </div>
     </div>
 </div>
 

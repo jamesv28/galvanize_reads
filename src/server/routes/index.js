@@ -34,6 +34,7 @@ router.get('/books/new', function(req,res,next) {
 router.get('/book/:id', function(req,res,next) {
     knex.select('*').from('books').where('id', req.params.id)
         .then(function (data) {
+            console.log('hello', data);
             res.render('book',
                 {
                     title: 'Galvanize REads | Individual Book',
@@ -47,7 +48,15 @@ router.get('/book/:id', function(req,res,next) {
  *************************/
 
 router.get('/authors', function (req, res, next) {
-  res.render('authors', { title: 'Authors'});
+    knex.select('*').from('authors')
+        .then(function(data) {
+            console.log(data);
+            res.render('authors',
+                {
+                    title: 'Galvanize Reads | Authors',
+                    authors: data
+                });
+        });
 });
 
 
