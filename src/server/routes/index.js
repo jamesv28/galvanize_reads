@@ -42,6 +42,18 @@ router.get('/book/:id', function(req,res,next) {
         });
 });
 
+router.get('/book/:id/edit', function(req,res,next) {
+    knex('books').where('id', req.params.id)
+        .then(function(data) {
+            console.log('edit data', data);
+            res.render('bookEdit',
+                {
+                    title: 'Galvanize Reads | Edit Books',
+                    books: data
+                })
+        })
+});
+
 router.get('/book/:id/delete', function(req,res,next) {
     knex.select('*').from('books').where('id', req.params.id)
         .then(function(data){
@@ -76,6 +88,19 @@ router.post('/book/:id/delete', function (req, res, next) {
             console.log('requirements', req.params.id);
             res.redirect('/books');
         });
+});
+
+router.post('/book/:id/edit', function(req, res, next) {
+
+    knex('books').where('id', req.params.id).update(
+        {
+            Book_Title: req.body.Book_Title,
+            Book_Genre: req.body.Book_Genre,
+            Book_Cover: req.body.Book_Cover,
+            Book_Description: req.body.Book_Description
+        }).then(function() {
+                res.redirect('/books');
+            });
 });
 /*************************
  * Getter for authors

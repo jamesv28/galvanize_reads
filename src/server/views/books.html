@@ -36,7 +36,9 @@
                 </div>
                 <div class=" col-md-9">
                     <h2 class="">{{book.Book_Title}}</h2>
-                    <button class="pull-right btn btn-success ">Edit</button>
+                    <a href="/book/{{book.id}}/edit">
+                        <button class="pull-right btn btn-success ">Edit</button>
+                    </a>
                     <a href="/book/{{book.id}}/delete">
                         <button class="btn btn-warning pull-right" >Delete</button>
                     </a>

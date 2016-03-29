@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="col-sm-2 col-md-2 col-xs-2">
+            <a href="/authors" class="sidebar">
+                <section class="authorsLink">
+                    <div class="text-center">
+                        <i class="fa fa-users fa-2x text-center"></i>
+                    </div>
+                    <p class="authorLinkText">Authors</p>
+                </section>
+            </a>
+            <a href="/books" class="sidebar">
+                <section class="booksLink">
+                    <div class="text-center">
+                        <i class="fa fa-book fa-2x text-center"></i>
+                    </div>
+                    <p class="authorLinkText">Books</p>
+                </section>
+            </a>
+        </div>
+        <div class="col-md-9  col-sm-9 ">
+
+            <form class="form-horizontal" role="form" method="post" action="/book/{{books[0].id }}/edit">
+                <div class="form-group">
+                    <label class="control-label col-sm-2 col-md-2">Title: </label>
+                    <div class="col-md-4 col-sm-4">
+                        <input type="text" name="Book_Title" value="{{books[0].Book_Title}}" required placeholder="Book Title" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Book_Genre" class="control-label col-md-2">Genre: </label>
+                    <div class="col-md-4">
+                        <input id="Book_Genre" name="Book_Genre" value="{{books[0].Book_Genre}}" class="form-control" placeholder="Book Genre" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Book_Cover" class="control-label col-md-2">Book Cover:</label>
+                    <div class="col-md-6">
+                        <input type="text" required id="Book_Cover" name="Book_Cover" value="{{books[0].Book_Cover}}" placeholder="Cover of the book">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Book_Description" class="control-label col-md-2">Book Description</label>
+                    <div class="col-md-6">
+                        <textarea rows="5" id="Book_Description" name="Book_Description"  class="form-control"  placeholder="{{books[0].Book_Description}}" required>
+                            {{books[0].Book_Description}}
+                        </textarea>
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Authors" class="control-label col-md-2">Authros</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" rows="5" placeholder="Name of Authors"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="center-block btn-large btn btn-primary">Edit Book</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
