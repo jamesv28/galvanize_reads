@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 var pg = require('pg');
+var knex = require('./db/knex.js');
 
 
 // *** routes *** //

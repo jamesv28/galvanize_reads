@@ -25,3 +25,42 @@ a {
   height: 40vh;
   margin-top: 100px;
 }
+
+.authorLinkText {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.authorsLink {
+  border: 1px solid black;
+  height: 30vh;
+  padding-top: 30px;
+}
+
+.booksLink {
+  border: 1px solid black;
+  height: 30vh;
+  padding-top: 30px;
+}
+
+.bookImages {
+  height: 200px;
+  width: 200px;
+  /*margin-bottom: 20px;*/
+}
+
+.bookSelection {
+  margin-bottom: 20px;
+}
+
+.bookSelection h2 {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+/*.bookDescript {*/
+  /*padding-left: 20px;*/
+/*}*/
