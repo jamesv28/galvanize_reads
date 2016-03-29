@@ -9,7 +9,7 @@ var knex = require('../../../db/knex');
 router.get('/', function(req, res, next) {
     res.render('index',
         {
-            title: 'Galvanize Eats'
+            title: 'Galvanize Reads | Home'
         })
 });
 
@@ -59,7 +59,13 @@ router.post('/books/new', function(req,res,next) {
     });
 });
 
-
+router.post('/books/:id/remove', function (req, res, next) {
+    knex('books').where('id', req.params.id).del()
+        .then(function () {
+            console.log('requirements', req.params.id);
+            res.redirect('/books');
+        });
+});
 /*************************
  * Getter for authors
  *************************/
