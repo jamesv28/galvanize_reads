@@ -93,4 +93,31 @@ router.get('/author/:id', function(req,res,next) {
                 });
         });
 });
+
+router.get('/author/:id/delete', function(req,res,next) {
+    knex.select('*').from('authors').where('id', req.params.id)
+        .then(function(data){
+           res.render('authorDelete',
+               {
+                   title: 'Galvanize Reads | Delete Author',
+                   authors: data
+               });
+        });
+});
+
+router.get('authors/new', function(req,res, next) {
+
+});
+
+/********************
+ *  CRUD for authors
+ ********************/
+
+router.post('/author/:id/delete', function(req,res,next) {
+    knex.select('authors').where('id', req.params.id).del()
+        .then(function() {
+            res.redirect('/authors');
+        });
+});
+
 module.exports = router;

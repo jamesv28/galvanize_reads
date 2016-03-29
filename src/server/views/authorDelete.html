@@ -26,35 +26,30 @@
             </a>
         </div>
         <div class="col-md-9  col-sm-9 ">
-            <h2>Galvanize Reads Authors</h2>
-            {% for author in authors %}
+            <h2 class="text-center">Are you sure you want to delete? </h2>
             <div class="bookSelection clearfix">
                 <div class="col-md-3">
-                    <a href="/author/{{ author.id }}">
-                        <img  class="bookImages img-responsive" src="../{{author.author1_portrait_url}}" align="{{book.Book_Title}}">
-                    </a>
+                    <img  class="bookImages img-responsive" src="../{{authors[0].author1_portrait_url}}" align="{{authors[0].author1_Last_Name  }}">
                 </div>
                 <div class=" col-md-9">
-                    <h2 class="">Name: {{author.author1_First_Name}} {{author.author1_Last_Name}}</h2>
-                    <button class="pull-right btn btn-success ">Edit</button>
-                    <a href="/author/{{author.id}}/delete">
-                        <button class="btn btn-danger pull-right">Delete</button>
-                    </a>
+                    <h2 class="">{{authors[0].author1_Last_Name}} , {{  authors[0].author1_First_Name }}</h2>
                     <div class="clearfix">
-                        <p>Biography: {{author.author1_Biography}}</p>
-
+                        <p>Biography: </p>
+                        <p>{{authors[0].author1_Biography}}</p>
                     </div>
+
+                </div>
+                <div>
+                    <form method="post" action="/author/{{author.id}/delete}">
+                        <button class="center-block btn btn-danger">Delete</button>
+                    </form>
+
                 </div>
 
             </div><!-- end of selection -->
-            {% endfor %}
 
         </div>
     </div>
 </div>
-<div class="row ">
-    <div class="container">
-        <button class="center-block btn btn-info">Add An Author!</button>
-    </div>
-</div>
+
 {% endblock %}
