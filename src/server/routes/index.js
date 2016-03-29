@@ -27,7 +27,7 @@ router.get('/books', function(req,res,next) {
 
 router.get('/books/new', function(req,res,next) {
     res.render('newBooks', {
-        index: 'Galvanize Reads | Add a new Book'
+        title: 'Galvanize Reads | Add a new Book'
     });
 });
 
@@ -105,8 +105,11 @@ router.get('/author/:id/delete', function(req,res,next) {
         });
 });
 
-router.get('authors/new', function(req,res, next) {
-
+router.get('/authors/new', function(req,res, next) {
+    res.render('newAuthor',
+        {
+            title: 'Galvanize Reads | Add an Author'
+        })
 });
 
 /********************
@@ -118,6 +121,17 @@ router.post('/author/:id/delete', function(req,res,next) {
         .then(function() {
             res.redirect('/authors');
         });
+});
+
+router.post('/authors/new', function(req,res, next) {
+    knex('authors').insert({
+        author1_First_Name: req.body.author1_First_Name,
+        author1_Last_Name: req.body.author1_Last_Name,
+        author1_portrait_url: req.body.author1_portrait_url,
+        author1_Biography: req.body.author1_Biography
+    }).then(function( ) {
+        res.redirect('/authors');
+    });
 });
 
 module.exports = router;
