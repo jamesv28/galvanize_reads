@@ -42,6 +42,17 @@ router.get('/book/:id', function(req,res,next) {
         });
 });
 
+router.get('/book/:id/delete', function(req,res,next) {
+    knex.select('*').from('books').where('id', req.params.id)
+        .then(function(data){
+            res.render('bookDelete',
+                {
+                    title: 'Galvanize Reads | Delete Author',
+                    books: data
+                });
+        });
+});
+
 /*************************
  * CRUD for Books
  ************************/
@@ -59,8 +70,8 @@ router.post('/books/new', function(req,res,next) {
     });
 });
 
-router.post('/books/:id/remove', function (req, res, next) {
-    knex('books').where('id', req.params.id).del()
+router.post('/book/:id/delete', function (req, res, next) {
+    knex.select('*').from('books').where('id', req.params.id).del()
         .then(function () {
             console.log('requirements', req.params.id);
             res.redirect('/books');
@@ -97,6 +108,7 @@ router.get('/author/:id', function(req,res,next) {
 router.get('/author/:id/delete', function(req,res,next) {
     knex.select('*').from('authors').where('id', req.params.id)
         .then(function(data){
+            console.log('author info', req.params.id);
            res.render('authorDelete',
                {
                    title: 'Galvanize Reads | Delete Author',
@@ -117,7 +129,7 @@ router.get('/authors/new', function(req,res, next) {
  ********************/
 
 router.post('/author/:id/delete', function(req,res,next) {
-    knex.select('authors').where('id', req.params.id).del()
+    knex.select('*').from('authors').where('id', req.params.id).del()
         .then(function() {
             res.redirect('/authors');
         });
@@ -133,5 +145,6 @@ router.post('/authors/new', function(req,res, next) {
         res.redirect('/authors');
     });
 });
+
 
 module.exports = router;

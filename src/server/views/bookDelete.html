@@ -26,22 +26,22 @@
             </a>
         </div>
         <div class="col-md-9  col-sm-9 ">
-            <h2 class="text-center">Are you sure you want to delete? </h2>
             <div class="bookSelection clearfix">
                 <div class="col-md-3">
-                    <img  class="bookImages img-responsive" src="../{{authors[0].author1_portrait_url}}" align="{{authors[0].author1_Last_Name  }}">
+                    <img  class="bookImages img-responsive" src="../{{books[0].Book_Cover}}" alt="{{book.Book_Title}}">
                 </div>
                 <div class=" col-md-9">
-                    <h2 class="">{{authors[0].author1_Last_Name}} , {{  authors[0].author1_First_Name }}</h2>
+                    <h2 class="">{{books[0].Book_Title}}</h2>
                     <div class="clearfix">
-                        <p>Biography: </p>
-                        <p>{{authors[0].author1_Biography}}</p>
+                        <p>Genre: {{books[0].Book_Genre}}</p>
+                        <p>Description: </p>
+                        <p>{{books[0].Book_Description}}</p>
                     </div>
 
                 </div>
                 <div>
-                    <form method="post" action="/author/{{authors[0].id}}/delete">
-                        <button class="center-block btn btn-danger">Delete</button>
+                    <form method="post" action="/book/{{books[0].id}}/delete">
+                        <button class="center-block btn btn-danger btn-large">Delete Book</button>
                     </form>
 
                 </div>
