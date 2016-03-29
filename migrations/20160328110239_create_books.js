@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         table.increments();
         table.string('Book_Title');
         table.string('Book_Genre');
-        table.string('Book_Description');
+        table.text('Book_Description');
         table.string('Book_Cover');
 
     });
