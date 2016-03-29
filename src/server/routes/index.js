@@ -43,6 +43,24 @@ router.get('/book/:id', function(req,res,next) {
 });
 
 /*************************
+ * CRUD for Books
+ ************************/
+
+router.post('/books/new', function(req,res,next) {
+
+    knex('books').insert({
+        Book_Title: req.body.Book_Title,
+        Book_Genre: req.body.Book_Genre,
+        Book_Cover: req.body.Book_Cover,
+        Book_Description: req.body.Book_Description
+
+    }).then(function() {
+        res.redirect('/books');
+    });
+});
+
+
+/*************************
  * Getter for authors
  *************************/
 
