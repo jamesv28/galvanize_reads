@@ -1,0 +1,24 @@
+
+exports.seed = function(knex, Promise) {
+  return Promise.join(
+    // Deletes ALL existing entries
+    knex('books_authors').del(),
+
+    // Inserts seed entries
+    knex('books_authors').insert(
+        {
+          book_id: 1,
+          author_id: 1
+        }),
+    knex('books_authors').insert(
+        {
+          book_id: 2,
+          author_id: 2
+        }),
+    knex('books_authors').insert(
+        {
+          book_id: 3,
+          author_id: 3
+        })
+  );
+};
