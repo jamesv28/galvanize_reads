@@ -15,8 +15,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/books', function(req,res,next) {
     knex.select('*').from('books')
+        .leftJoin('books_authors', 'books_authors.book_id','books.id')
+        .leftJoin('authors', 'authors.id', 'books_authors.author_id')
         .then(function(data) {
-            console.log(data);
+            console.log('hello',data);
             res.render('books',
                 {
                     title: 'Galvanize Reads | Books',
@@ -119,13 +121,14 @@ router.get('/authors', function (req, res, next) {
 });
 
 router.get('/author/:id', function(req,res,next) {
-    knex.select('*').from('authors').where('id', req.params.id)
+    knex('books_authors').where('author_id', req.params.id)
+        .innerJoin('books', 'books.id', 'books_authors.book_id')
+        .innerJoin('authors', 'authors.id', 'books_authors.author_id')
         .then(function (data) {
-            console.log('hello', data);
+            console.log('this is data',data);
             res.render('author',
                 {
-                    title: 'Galvanize REads | Individual Author',
-                    authors: data
+                    author: data[0]
                 });
         });
 });

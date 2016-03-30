@@ -28,13 +28,17 @@
         <div class="col-md-9  col-sm-9 ">
             <div class="bookSelection clearfix">
                 <div class="col-md-3">
-                    <img  class="bookImages img-responsive" src="../{{authors[0].author1_portrait_url}}" align="{{authors[0].author1_Last_Name  }}">
+                    <img  class="bookImages img-responsive" src="../{{author.author1_portrait_url}}" align="{{authors.author1_Last_Name  }}">
                 </div>
                 <div class=" col-md-9">
-                    <h2 class="">{{authors[0].author1_Last_Name}} , {{  authors[0].author1_First_Name }}</h2>
+                    <h2 class="">{{author.author1_Last_Name}} , {{  author.author1_First_Name }}</h2>
                     <div class="clearfix">
                         <p>Biography: </p>
-                        <p>{{authors[0].author1_Biography}}</p>
+                        <p>{{author.author1_Biography}}</p>
+                    </div>
+                    <div>
+                        <h4>Books</h4>
+                        <p>{{author.Book_Title}}</p>
                     </div>
 
                 </div>
